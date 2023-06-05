@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,7 +6,6 @@
  */
 
 import React from 'react';
-import {View, SafeAreaView} from 'react-native';
 import Splash from './src/screen/auth/Splash';
 import Signup from './src/screen/auth/Signup';
 import Signin from './src/screen/auth/Signin';
@@ -31,7 +29,7 @@ const Tabs = () => {
   </Tab.Navigator>;
 };
 const App = () => {
-  const isSignedIn = false;
+  const isSignedIn = true;
   const theme = {
     colors: {
       background: colors.white,
@@ -46,8 +44,8 @@ const App = () => {
             <>
               <Stack.Screen
                 name="Tabs"
-                component={Tab}
-                options={{headerShown: true}}
+                component={Tabs}
+                options={{headerShown: false}}
               />
             </>
           ) : (

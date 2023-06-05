@@ -12,6 +12,7 @@ import GoogleLogin from '../../../components/GoogleLogin';
 
 const Signin = ({navigation}) => {
   const onSignUp = () => {
+    console.log('HELLO');
     navigation.navigate('Signup');
   };
 

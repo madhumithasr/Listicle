@@ -2,17 +2,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {Text, View, ScrollView, SafeAreaView} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 import {styles} from './styles';
 import AuthHeader from '../../../components/AuthHeader';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import Separator from '../../../components/Separator';
 import GoogleLogin from '../../../components/GoogleLogin';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Signin = ({navigation}) => {
   const onSignUp = () => {
-    console.log('HELLO');
     navigation.navigate('Signup');
   };
 

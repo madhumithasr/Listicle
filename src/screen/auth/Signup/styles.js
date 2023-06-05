@@ -12,13 +12,13 @@ export const styles = StyleSheet.create({
   },
   agreeText: {
     color: colors.blue,
-    marginHorizontal: 13,
+    marginHorizontal: 15,
   },
   agreeTextBold: {
     fontWeight: 'bold',
   },
   button: {
-    marginVertical: 20,
+    marginVertical: 25,
   },
   footerText: {
     color: colors.blue,

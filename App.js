@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unstable-nested-components */
 /**
  * Sample React Native App
@@ -19,6 +20,7 @@ import Home from './src/screen/app/Home';
 import Favorites from './src/screen/app/Favorites';
 import Profile from './src/screen/app/Profile';
 import {Image} from 'react-native';
+import ProductDetails from './src/screen/app/ProductDetails';
 import Setting from './src/screen/app/Setting';
 
 const Stack = createNativeStackNavigator();
@@ -76,6 +78,11 @@ const App = () => {
               <Stack.Screen
                 name="Tabs"
                 component={Tabs}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="ProductDetails"
+                component={ProductDetails}
                 options={{headerShown: false}}
               />
             </>

@@ -8,18 +8,20 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+
     height: '100%',
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 300,
   },
   titleContainer: {
     marginVertical: 54,
   },
   title: {
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: 'bold',
+    color: 'black',
     textAlign: 'center',
   },
   innerTitle: {
@@ -33,5 +35,4 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 30,
   },
-  buttonCont: {width: '100%', flexDirection: 'row'},
 });

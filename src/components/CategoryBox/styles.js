@@ -4,17 +4,22 @@ import {colors} from '../../utils/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.darkGrey,
-    borderRadius: 14,
-    width: '45%',
-    alignSelf: 'center',
+    marginHorizontal: 8,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
-    marginBottom: 50,
+  },
+  title: {
+    color: colors.grey,
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 32,
+    height: 32,
+  },
+  imageContainer: {
+    backgroundColor: colors.lightGrey,
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 8,
   },
 });

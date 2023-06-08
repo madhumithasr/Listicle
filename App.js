@@ -1,5 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable no-unused-vars */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native

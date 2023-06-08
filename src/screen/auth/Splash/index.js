@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Text, Image, View, Pressable} from 'react-native';
@@ -18,7 +19,7 @@ const Splash = ({navigation}) => {
       <Image
         resizeMode="contain"
         style={styles.image}
-        source={require('../../../assets/Splash.png')}
+        source={require('./../../../assets/Splash.png')}
       />
 
       <View style={styles.titleContainer}>
@@ -27,9 +28,7 @@ const Splash = ({navigation}) => {
         <Text style={styles.title}>Here!</Text>
       </View>
 
-      <View style={styles.buttonCont}>
-        <Button onPress={onSignup} title="Sign Up" />
-      </View>
+      <Button title="Sign Up" />
 
       <Pressable onPress={onSignin} hitSlop={20}>
         <Text style={styles.footerText}>Sign In</Text>

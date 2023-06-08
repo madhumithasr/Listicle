@@ -33,4 +33,5 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 30,
   },
+  buttonCont: {width: '100%', flexDirection: 'row'},
 });

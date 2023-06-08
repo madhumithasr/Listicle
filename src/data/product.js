@@ -55,4 +55,19 @@ export const product = [
     description:
       'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ',
   },
+  {
+    id: 6,
+    title: 'Bed',
+    image:
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    images: [
+      'https://media.istockphoto.com/id/1284744586/photo/coastal-bedroom-interior-mockup-3d-render.jpg?s=1024x1024&w=is&k=20&c=U5N_XYfx3zeI9xqUlTAlkJgOIWgoT67DnLZPLfYE08Q=',
+      'https://media.istockphoto.com/id/1360208714/photo/home-interior-scandinavian-style-bedroom-mock-up-3d-rendering.jpg?s=612x612&w=0&k=20&c=IHxTvqnkMuWeW99yAlA8mmHerrW3fVSFDghQ9BurP5k=',
+      'https://media.istockphoto.com/id/1347943390/photo/3d-visualization-of-a-double-bed-with-bedside-tables-in-a-minimalistic-interior-3d.jpg?s=612x612&w=0&k=20&c=SzG89l9cAxuoR48vD3DXEVZfvECr5x0qafDxdpOF80I=',
+    ],
+    category: 5,
+    price: '$ 120.00',
+    description:
+      'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ',
+  },
 ];

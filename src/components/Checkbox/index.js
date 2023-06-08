@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {TouchableOpacity, View, Image} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
 
 const Checkbox = ({checked, onCheck}) => {

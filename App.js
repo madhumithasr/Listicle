@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 /**
  * Sample React Native App
@@ -20,21 +21,51 @@ import Favorites from './src/screen/app/Favorites';
 import Profile from './src/screen/app/Profile';
 import {Image} from 'react-native';
 import ProductDetails from './src/screen/app/ProductDetails';
+import MyListing from './src/screen/app/MyListing';
+import Setting from './src/screen/app/Setting';
+import CreateListing from './src/screen/app/CreateListing';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Setting}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CreateListing"
+        component={CreateListing}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyListing"
+        component={MyListing}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const Tabs = () => (
   <Tab.Navigator
     screenOptions={({route}) => ({
-      tabBarIcon: ({focused, color, size}) => {
+      tabBarIcon: ({focused}) => {
         let icon;
 
         if (route.name === 'Home') {
           icon = focused
             ? require('./src/assets/tabs/home_active.png')
             : require('./src/assets/tabs/home.png');
-        } else if (route.name === 'Profile') {
+        } else if (route.name === 'ProfileStack') {
           icon = focused
             ? require('./src/assets/tabs/profile_active.png')
             : require('./src/assets/tabs/profile.png');
@@ -45,7 +76,6 @@ const Tabs = () => (
         }
 
         // You can return any component that you like here!
-        // eslint-disable-next-line react-native/no-inline-styles
         return <Image style={{width: 24, height: 24}} source={icon} />;
       },
       headerShown: false,
@@ -54,7 +84,7 @@ const Tabs = () => (
     })}>
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Favorites" component={Favorites} />
-    <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Screen name="ProfileStack" component={ProfileStack} />
   </Tab.Navigator>
 );
 
@@ -108,5 +138,4 @@ const App = () => {
     </SafeAreaProvider>
   );
 };
-
 export default App;

@@ -20,18 +20,18 @@ export const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
     marginTop: -40,
     paddingHorizontal: 24,
   },
   title: {
-    marginTop: 35,
+    marginTop: 40,
     fontSize: 24,
     fontWeight: '500',
   },
   price: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
     marginVertical: 8,
   },

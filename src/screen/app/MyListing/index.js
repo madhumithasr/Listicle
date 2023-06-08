@@ -1,22 +1,30 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import {FlatList, ScrollView, Text} from 'react-native';
-import {styles} from './styles';
+import {FlatList} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {product} from '../../../data/product';
 import FavoriteItem from '../../../components/FavoriteItem';
 import Header from '../../../components/Header';
 
-const Favorites = () => {
+const MyListings = ({navigation}) => {
   const renderItem = ({item}) => {
-    return <FavoriteItem {...item} />;
+    const onProductPress = () => {
+      navigation.navigate('ProductDetails', {product: item});
+    };
+    return (
+      <FavoriteItem
+        icon={require('../../../assets/delete.png')}
+        onPress={onProductPress}
+        {...item}
+      />
+    );
   };
+
+  const goBack = () => navigation.goBack();
 
   return (
     <SafeAreaView>
-      <Header title="Favorites" />
+      <Header title="My Listing" showBack onBackPress={goBack} />
 
       <FlatList
         data={product}
@@ -27,4 +35,4 @@ const Favorites = () => {
   );
 };
 
-export default React.memo(Favorites);
+export default React.memo(MyListings);

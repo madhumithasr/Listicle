@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React from 'react';
@@ -19,7 +20,7 @@ const Splash = ({navigation}) => {
       <Image
         resizeMode="contain"
         style={styles.image}
-        source={require('./../../../assets/Splash.png')}
+        source={require('../../../assets/Splash.png')}
       />
 
       <View style={styles.titleContainer}>
@@ -28,7 +29,9 @@ const Splash = ({navigation}) => {
         <Text style={styles.title}>Here!</Text>
       </View>
 
-      <Button title="Sign Up" />
+      <View style={styles.buttonCont}>
+        <Button onPress={onSignup} title="Sign Up" />
+      </View>
 
       <Pressable onPress={onSignin} hitSlop={20}>
         <Text style={styles.footerText}>Sign In</Text>
@@ -36,5 +39,3 @@ const Splash = ({navigation}) => {
     </View>
   );
 };
-
-export default React.memo(Splash);

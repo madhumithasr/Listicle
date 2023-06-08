@@ -30,6 +30,7 @@ const CreateListing = ({navigation}) => {
   const uploadNewImage = async () => {
     setLoading(true);
     const result = await launchImageLibrary();
+    console.log('result :>> ', result);
 
     if (result?.assets?.length) {
       setImages(list => [...list, ...result?.assets]);
@@ -39,10 +40,10 @@ const CreateListing = ({navigation}) => {
 
   const onDeleteImage = image => {
     setImages(list => {
-      const filteredImages = list.filter(
+      const filteredImage = list.filter(
         img => img?.fileName !== image?.fileName,
       );
-      return filteredImages;
+      return filteredImage;
     });
   };
 

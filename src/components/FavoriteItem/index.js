@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
+
 import React, {useState} from 'react';
 import {Pressable, Text, View, Image} from 'react-native';
 import Input from '../Input';

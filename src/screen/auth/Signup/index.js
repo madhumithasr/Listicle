@@ -1,23 +1,26 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
 
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {Text, View, ScrollView} from 'react-native';
-import {styles} from './styles';
+import {Alert, ScrollView, Text, View} from 'react-native';
 import AuthHeader from '../../../components/AuthHeader';
-import Input from '../../../components/Input';
-import Checkbox from '../../../components/Checkbox';
 import Button from '../../../components/Button';
+import Checkbox from '../../../components/Checkbox';
+import Input from '../../../components/Input';
 import Separator from '../../../components/Separator';
 import GoogleLogin from '../../../components/GoogleLogin';
-
+import {styles} from './styles';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {request} from '../../../utils/request';
 
 const Signup = ({navigation}) => {
   const [checked, setChecked] = useState(false);
+  const [values, setValues] = useState({});
 
   const onSignIn = () => {
     navigation.navigate('Signin');
@@ -27,14 +30,74 @@ const Signup = ({navigation}) => {
     navigation.goBack();
   };
 
+  const onChange = (key, value) => {
+    setValues(v => ({...v, [key]: value}));
+  };
+
+  const onSubmit = async () => {
+    try {
+      if (
+        !values?.fullName ||
+        !values?.email ||
+        !values?.password ||
+        !values?.confirmPassword
+      ) {
+        Alert.alert('All fields are required');
+        return;
+      }
+
+      if (values?.password !== values?.confirmPassword) {
+        Alert.alert('Passwords do not match');
+        return;
+      }
+
+      if (!checked) {
+        Alert.alert('Please agree to the terms');
+        return;
+      }
+
+      const response = await request({
+        url: '/user/register',
+        method: 'post',
+        data: values,
+      });
+      console.log('response :>> ', response);
+    } catch (error) {
+      console.log('error :>> ', error);
+    }
+  };
+
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
         <AuthHeader onBackPress={onBack} title="Sign Up" />
 
-        <Input label="Name" placeholder="John Doe" />
-        <Input label="E-mail" placeholder="example@gmail.com" />
-        <Input isPassword label="Password" placeholder="*******" />
+        <Input
+          value={values.fullName}
+          onChangeText={v => onChange('fullName', v)}
+          label="Name"
+          placeholder="John Doe"
+        />
+        <Input
+          value={values.email}
+          onChangeText={v => onChange('email', v)}
+          label="E-mail"
+          placeholder="example@gmail.com"
+        />
+        <Input
+          value={values.password}
+          onChangeText={v => onChange('password', v)}
+          isPassword
+          label="Password"
+          placeholder="*******"
+        />
+        <Input
+          value={values.confirmPassword}
+          onChangeText={v => onChange('confirmPassword', v)}
+          isPassword
+          label="Confirm Password"
+          placeholder="*******"
+        />
 
         <View style={styles.agreeRow}>
           <Checkbox checked={checked} onCheck={setChecked} />
@@ -44,7 +107,7 @@ const Signup = ({navigation}) => {
           </Text>
         </View>
 
-        <Button style={styles.button} title="Sign Up" />
+        <Button onPress={onSubmit} style={styles.button} title="Sign Up" />
 
         <Separator text="Or sign up with" />
 

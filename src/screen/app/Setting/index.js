@@ -43,7 +43,7 @@ const Settings = ({navigation}) => {
           <Pressable onPress={onEditPress}>
             <Image
               style={styles.icon}
-              source={require('../../../assets/edit.png')}
+              source={require('../../../assets/edits.png')}
             />
           </Pressable>
         </View>

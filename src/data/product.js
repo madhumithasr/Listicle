@@ -66,7 +66,7 @@ export const product = [
       'https://media.istockphoto.com/id/1347943390/photo/3d-visualization-of-a-double-bed-with-bedside-tables-in-a-minimalistic-interior-3d.jpg?s=612x612&w=0&k=20&c=SzG89l9cAxuoR48vD3DXEVZfvECr5x0qafDxdpOF80I=',
     ],
     category: 5,
-    price: '$ 120.00',
+    price: '$ 150.00',
     description:
       'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ',
   },

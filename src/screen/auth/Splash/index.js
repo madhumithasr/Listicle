@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
+
+/* eslint-disable prettier/prettier */
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Text, Image, View, Pressable} from 'react-native';
@@ -33,9 +34,11 @@ const Splash = ({navigation}) => {
         <Button onPress={onSignup} title="Sign Up" />
       </View>
 
-      <Pressable onPress={onSignin} hitSlop={20}>
+      <Pressable onPress={onSignin} hitSlop={10}>
         <Text style={styles.footerText}>Sign In</Text>
       </Pressable>
     </View>
   );
 };
+
+export default React.memo(Splash);

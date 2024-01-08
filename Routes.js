@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prettier/prettier */
@@ -9,23 +8,24 @@
 /* eslint-disable prettier/prettier */
 
 import React, {useContext, useEffect, useState} from 'react';
-import Signin from './src/screen/auth/Signin';
-import Splash from './src/screen/auth/Splash';
-import Signup from './src/screen/auth/Signup';
-import Home from './src/screen/app/Home';
-import Favorites from './src/screen/app/Favorites';
-import Profile from './src/screen/app/Profile';
-import Setting from './src/screen/app/Setting';
-import ProductDetails from './src/screen/app/ProductDetails';
+import Signin from './src/screens/auth/Signin';
+import Splash from './src/screens/auth/Splash';
+import Signup from './src/screens/auth/Signup';
+import Home from './src/screens/app/Home';
+import Favorites from './src/screens/app/Favorites';
+import Profile from './src/screens/app/Profile';
+import Settings from './src/screens/app/Settings';
+import ProductDetails from './src/screens/app/ProductDetails';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from './src/utils/colors';
 import {Image} from 'react-native';
-import CreateListing from './src/screen/app/CreateListing';
-import MyListing from './src/screen/app/MyListing';
+import CreateListing from './src/screens/app/CreateListing';
+import MyListings from './src/screens/app/MyListings';
 import {UserContext} from './App';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {addTokenToAxios} from './src/utils/request';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,8 +39,8 @@ const ProfileStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Setting"
-        component={Setting}
+        name="Settings"
+        component={Settings}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -49,8 +49,8 @@ const ProfileStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="MyListing"
-        component={MyListing}
+        name="MyListings"
+        component={MyListings}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -91,20 +91,35 @@ const Tabs = () => (
 );
 
 const Routes = () => {
+  const [loading, setLoading] = useState(true);
   const {user, setUser} = useContext(UserContext);
 
   useEffect(() => {
     (async () => {
       const token = await AsyncStorage.getItem('auth_token');
       setUser({token});
+
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     })();
   }, []);
+
+  useEffect(() => {
+    if (user?.token) {
+      addTokenToAxios(user?.token);
+    }
+  }, [user]);
 
   const theme = {
     colors: {
       background: colors.white,
     },
   };
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <NavigationContainer theme={theme}>
